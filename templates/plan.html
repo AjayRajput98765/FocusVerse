@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>📚 Custom Learning Plan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Personalized Learning Plan Generator</h1>
+        </header>
+
+        <section class="form-box" aria-label="Create Custom Learning Plan">
+            <h2>📚 Create Your Learning Plan</h2>
+            <form method="POST" class="form" autocomplete="off">
+                <label for="topic">📘 Topic to Learn</label>
+                <input type="text" id="topic" name="topic" placeholder="E.g., Python, Data Science, Bhagavad Gita" required />
+
+                <label for="duration">⏳ Duration (in days)</label>
+                <input type="number" id="duration" name="duration" placeholder="E.g., 7" min="1" required />
+
+                <button type="submit">🚀 Generate Plan</button>
+            </form>
+        </section>
+
+        {% if plan %}
+        <section class="form-box" aria-label="Generated Plan Output">
+            <h3>🧾 Your Custom Plan</h3>
+            <pre class="plan-output">{{ plan }}</pre>
+        </section>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!-- Daily Journal & 3 Wins Form -->
+<section class="form-box" aria-label="Daily Journal & 3 Wins">
+  <h2>📝 Daily Journal & 3 Wins</h2>
+  <form method="POST" class="form" autocomplete="off">
+    <label for="journal">🧘 What did you learn, feel, or experience today?</label>
+    <textarea id="journal" name="journal" placeholder="Reflect here..." required rows="4"></textarea>
+
+    <label for="win1">🏆 Win #1</label>
+    <input type="text" id="win1" name="win1" placeholder="E.g., Completed a chapter" required>
+
+    <label for="win2">🏆 Win #2</label>
+    <input type="text" id="win2" name="win2" placeholder="E.g., Helped a friend" required>
+
+    <label for="win3">🏆 Win #3</label>
+    <input type="text" id="win3" name="win3" placeholder="E.g., Practiced mindfulness" required>
+
+    <button type="submit">💾 Save Journal</button>
+  </form>
+</section>
+
+<!-- Display Previous Journal Entries -->
+<section class="logs" aria-label="Journal Entries">
+  <h3>📚 Previous Journal Entries</h3>
+  {% for e in entries %}
+    <div class="log-item">
+      <p><strong>{{ e[1] }}</strong></p>
+      <p class="entry-text">📝 {{ e[2] }}</p>
+      <ul class="wins-list">
+        <li>🥇 {{ e[3] }}</li>
+        <li>🥈 {{ e[4] }}</li>
+        <li>🥉 {{ e[5] }}</li>
+      </ul>
+    </div>
+  {% else %}
+    <p class="no-logs">No journal entries yet. Start journaling to see your growth!</p>
+  {% endfor %}
+</section>
